@@ -1,0 +1,349 @@
+
+/* 1. Global Settings */
+:root {
+    --primary: #6558f5;
+    --primary-hover: #5043d8;
+    --background: #ffffff;
+    --surface: #f5f6fb;
+    --text: #20243a;
+    --muted: #626980;
+    --border: #e5e7ef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Navigation */
+.navbar {
+    min-height: 76px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.25s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 27px;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.theme-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* 3. Hero Section */
+.hero {
+    min-height: 570px;
+    padding: 100px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%,
+        #e7e4ff 0, transparent 35%),
+        radial-gradient(circle at 85% 75%,
+        #dcecff 0, transparent 35%),
+        var(--surface);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto 32px;
+}
+
+/* 4. Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 9px;
+    font-weight: 700;
+    transition: transform 0.25s, background 0.25s;
+}
+
+.primary-btn {
+    color: #ffffff;
+    background: var(--primary);
+    box-shadow: 0 8px 20px rgba(101, 88, 245, 0.2);
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+/* 5. Common Sections */
+.section {
+    padding: 85px 7%;
+    text-align: center;
+}
+
+.section h2,
+.about h2,
+.contact h2 {
+    font-size: clamp(29px, 4vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.about > p:last-child,
+.contact > p:not(.eyebrow),
+.section-description {
+    max-width: 680px;
+    margin: 0 auto 25px;
+    color: var(--muted);
+}
+
+/* 6. Service Cards: CSS Grid */
+.services {
+    background: var(--surface);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 42px;
+}
+
+.service-card {
+    padding: 35px 27px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-align: left;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(30, 40, 80, 0.1);
+}
+
+.service-icon {
+    font-size: 35px;
+    margin-bottom: 17px;
+}
+
+.service-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* 7. Contact */
+.contact {
+    background: var(--background);
+}
+
+/* 8. Footer */
+.footer {
+    padding: 28px 7%;
+    background: #17192b;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    gap: 22px;
+}
+
+.social-links a:hover {
+    color: #b8b0ff;
+}
+
+/* 9. Dark Mode */
+body.dark-mode {
+    --background: #111525;
+    --surface: #1a2033;
+    --text: #f3f4fa;
+    --muted: #b7bfd2;
+    --border: #30374d;
+}
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(circle at 15% 20%,
+        #29244d 0, transparent 35%),
+        radial-gradient(circle at 85% 75%,
+        #1d344c 0, transparent 35%),
+        var(--surface);
+}
+
+/* 10. Mobile Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 14px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: var(--background);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 5px 0;
+    }
+
+    .theme-btn {
+        align-self: flex-start;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 75px 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 65px 6%;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        padding: 28px 24px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 5%;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
